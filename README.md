@@ -1,1 +1,0 @@
-# tapnow_card

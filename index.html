@@ -23,6 +23,11 @@
             --primary-hover: #E5A800;
             --secondary: #1A1A1A;
             --secondary-hover: #252525;
+            
+            /* Section backgrounds for visual rhythm */
+            --bg-dark: #0D0D0D;
+            --bg-darker: #080808;
+            --bg-card: #141414;
         }
     </style>
     
@@ -111,55 +116,95 @@
     <main class="pt-20">
         
         <!-- Hero Section -->
-        <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden section-dark">
             
-            <!-- Background Glow Effect -->
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div class="w-[800px] h-[600px] bg-primary/20 rounded-full blur-[150px] opacity-50"></div>
+            <!-- Background Effects -->
+            <div class="absolute inset-0 pointer-events-none">
+                <!-- Main glow -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[700px] bg-primary/15 rounded-full blur-[180px]"></div>
+                <!-- Secondary subtle glow -->
+                <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]"></div>
+                <!-- Grid pattern overlay -->
+                <div class="absolute inset-0 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
             </div>
             
             <!-- Hero Content -->
-            <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 
                 <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-8">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <div class="reveal inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm mb-8">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                    </span>
                     <span class="text-sm font-medium text-primary">Now Live — Instant NFC Activation</span>
                 </div>
                 
                 <!-- Main Headline -->
-                <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6">
+                <h1 class="reveal text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6">
                     <span class="text-white">Tap. Connect.</span>
                     <br>
-                    <span class="text-primary">Go Live — Now.</span>
+                    <span class="gradient-text">Go Live — Now.</span>
                 </h1>
                 
                 <!-- Subtitle -->
-                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Activate your business instantly with NFC & QR codes. Connect directly to Google Business in under 60 seconds.
+                <p class="reveal text-gray-400 text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed">
+                    Activate your business instantly with NFC & QR codes. 
+                    <span class="text-white font-medium">Connect directly to Google Business</span> in under 60 seconds.
                 </p>
                 
                 <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="/get-started" class="group px-8 py-4 text-base font-semibold rounded-lg bg-primary text-[#0D0D0D] hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center gap-2">
-                        Get Started
-                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                    <a href="/get-started" class="group px-10 py-4 text-base font-semibold rounded-xl bg-primary text-[#0D0D0D] hover:bg-primary-hover glow-hover hover:-translate-y-1 transition-all duration-300 cursor-pointer flex items-center gap-2">
+                        Get Started Free
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                         </svg>
                     </a>
-                    <a href="#how-it-works" class="group px-8 py-4 text-base font-semibold rounded-lg border border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all duration-300 cursor-pointer flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <a href="#how-it-works" class="group px-10 py-4 text-base font-semibold rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 cursor-pointer flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         See How It Works
                     </a>
                 </div>
+                
+                <!-- Trust Indicators -->
+                <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>No credit card required</span>
+                    </div>
+                    <div class="hidden sm:block w-1 h-1 rounded-full bg-gray-600"></div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Setup in 60 seconds</span>
+                    </div>
+                    <div class="hidden sm:block w-1 h-1 rounded-full bg-gray-600"></div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Works with Google Business</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
             </div>
         </section>
 
         <!-- What is TAPNOW Section -->
-        <section id="about" class="relative py-24 overflow-hidden">
+        <section id="about" class="relative py-24 overflow-hidden section-darker">
             <!-- Background Glow -->
             <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none"></div>
             
@@ -167,7 +212,7 @@
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     
                     <!-- Left Content -->
-                    <div>
+                    <div class="reveal-left">
                         <h2 class="text-4xl md:text-5xl font-bold mb-6">
                             <span class="text-white">What is </span>
                             <span class="text-primary">TAPNOW</span>
@@ -252,11 +297,11 @@
         </section>
 
         <!-- How It Works Section -->
-        <section id="how-it-works" class="py-24 bg-[#0A0A0A]">
+        <section id="how-it-works" class="py-24 section-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <!-- Section Header -->
-                <div class="text-center mb-16">
+                <div class="reveal text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4">
                         <span class="text-white">How It </span>
                         <span class="text-primary">Works</span>
@@ -265,7 +310,7 @@
                 </div>
                 
                 <!-- Steps -->
-                <div class="grid md:grid-cols-3 gap-6 relative">
+                <div class="stagger-children grid md:grid-cols-3 gap-6 relative">
                     
                     <!-- Step 1 -->
                     <div class="relative">
@@ -325,11 +370,11 @@
         </section>
 
         <!-- Features Section -->
-        <section id="features" class="py-24">
+        <section id="features" class="py-24 section-darker">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <!-- Section Header -->
-                <div class="text-center mb-16">
+                <div class="reveal text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4">
                         <span class="text-white">Powerful </span>
                         <span class="text-primary">Features</span>
@@ -338,10 +383,10 @@
                 </div>
                 
                 <!-- Features Grid -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="stagger-children grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
                     <!-- Feature 1 -->
-                    <div class="bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
+                    <div class="card-hover bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
                         <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                             <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -352,7 +397,7 @@
                     </div>
                     
                     <!-- Feature 2 -->
-                    <div class="bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
+                    <div class="card-hover bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
                         <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                             <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
@@ -363,7 +408,7 @@
                     </div>
                     
                     <!-- Feature 3 -->
-                    <div class="bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
+                    <div class="card-hover bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
                         <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                             <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
@@ -374,7 +419,7 @@
                     </div>
                     
                     <!-- Feature 4 -->
-                    <div class="bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
+                    <div class="card-hover bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
                         <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                             <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
@@ -385,7 +430,7 @@
                     </div>
                     
                     <!-- Feature 5 -->
-                    <div class="bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
+                    <div class="card-hover bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
                         <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                             <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -396,7 +441,7 @@
                     </div>
                     
                     <!-- Feature 6 -->
-                    <div class="bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
+                    <div class="card-hover bg-secondary rounded-2xl p-8 border border-white/5 hover:border-primary/30 transition-colors duration-300">
                         <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                             <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
@@ -410,14 +455,14 @@
         </section>
 
         <!-- Dashboard Section -->
-        <section id="dashboard" class="py-24 relative overflow-hidden">
+        <section id="dashboard" class="py-24 relative overflow-hidden section-dark">
             <!-- Background Glow -->
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none"></div>
             
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <!-- Section Header -->
-                <div class="text-center mb-16">
+                <div class="reveal text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4">
                         <span class="text-white">Simple, Powerful </span>
                         <span class="text-primary">Dashboard</span>
@@ -461,11 +506,11 @@
         </section>
 
         <!-- Why Choose TAPNOW Section -->
-        <section id="why-choose" class="py-24 bg-[#0A0A0A]">
+        <section id="why-choose" class="py-24 section-darker">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <!-- Section Header -->
-                <div class="text-center mb-16">
+                <div class="reveal text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4">
                         <span class="text-white">Why Choose </span>
                         <span class="text-primary">TAPNOW</span>
@@ -546,11 +591,11 @@
         </section>
 
         <!-- Pricing Section -->
-        <section id="pricing" class="py-24">
+        <section id="pricing" class="py-24 section-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <!-- Section Header -->
-                <div class="text-center mb-16">
+                <div class="reveal text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4">
                         <span class="text-white">Simple </span>
                         <span class="text-primary">Pricing</span>
@@ -559,7 +604,7 @@
                 </div>
                 
                 <!-- Pricing Cards -->
-                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="stagger-children grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                     
                     <!-- Starter Plan -->
                     <div class="bg-secondary rounded-2xl p-8 border border-white/5 flex flex-col">
@@ -737,11 +782,11 @@
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="py-24 bg-[#0A0A0A]">
+        <section id="faq" class="py-24 section-darker">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <!-- Section Header -->
-                <div class="text-center mb-16">
+                <div class="reveal text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4">
                         <span class="text-white">Frequently Asked </span>
                         <span class="text-primary">Questions</span>
@@ -821,7 +866,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section id="cta" class="py-24 relative overflow-hidden">
+        <section id="cta" class="py-24 relative overflow-hidden section-dark">
             <!-- Background Glow -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div class="w-[1000px] h-[600px] bg-primary/20 rounded-full blur-[200px] opacity-60"></div>
@@ -998,6 +1043,143 @@
         
         /* Smooth scroll */
         html { scroll-behavior: smooth; }
+        
+        /* ===== SCROLL REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Stagger children animations */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .stagger-children.active > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-children.active > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-children.active > *:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-children.active > *:nth-child(4) { transition-delay: 0.4s; }
+        .stagger-children.active > *:nth-child(5) { transition-delay: 0.5s; }
+        .stagger-children.active > *:nth-child(6) { transition-delay: 0.6s; }
+        
+        .stagger-children.active > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Card hover lift effect */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Section backgrounds alternating */
+        .section-dark {
+            background-color: var(--bg-dark);
+        }
+        
+        .section-darker {
+            background-color: var(--bg-darker);
+        }
+        
+        /* Gradient text animation */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, #FFD54F 50%, var(--primary) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Glow effect for buttons on hover */
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(245, 181, 0, 0.4);
+        }
+        
+        /* Line decoration */
+        .line-decoration::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
     </style>
+    
+    <!-- Scroll Reveal Script -->
+    <script>
+        // Intersection Observer for scroll reveal animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+        
+        const revealObserver = new IntersectionObserver(revealCallback, observerOptions);
+        
+        // Observe all reveal elements after DOM loads
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children').forEach(el => {
+                revealObserver.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
